@@ -1,0 +1,30 @@
+<h2>Shipping label marker</h2>
+<!-- <router-outlet></router-outlet> -->
+<div class="progress">
+    <div class="progress-bar" [style.width.%]="progress"></div>
+</div>
+<div style="min-height: 200px;height:100%">
+    <app-sender-address (sender)="updateContext($event,'1')" *ngIf="navigate == 1"></app-sender-address>
+    <app-receiver-address (receiver)="updateContext($event,'2')" *ngIf="navigate == 2"></app-receiver-address>
+    <app-weight (weightEmit)="updateContext($event,'3')" *ngIf="navigate == 3"></app-weight>
+    <app-shippingoption (shipEmit)="updateContext($event,'4')" *ngIf="navigate == 4"></app-shippingoption>
+
+    <div class="container">
+        <div class="row" *ngIf="navigate == 5">
+            <div class="col-sm-2">
+                <h4>Shipping Cost is </h4>
+            </div>
+            <div class="col-sm-10 shipping_cost_row" *ngIf="shippingCost >= 0">{{shippingCost}}</div>
+            <div class="col-sm-10 shipping_cost_row" *ngIf="!(shippingCost >= 0)">Weight and Shipping options are
+                incorrect</div>
+        </div>
+        <div class="row" *ngIf="navigate > 5">
+            <h4>Successfully submitted</h4>
+        </div>
+    </div>
+</div>
+<div class="row button_row">
+    <button type="button" class="btn btn-default prev_button all_buttons" (click)="onAction(wizardAction.Prev)">Prev</button>
+    <button type="button" *ngIf="6 > navigate" class="btn btn-default next_button all_buttons" (click)="onAction(wizardAction.Next)">Next</button>
+    <button type="button" *ngIf="navigate > 5" class="btn btn-default next_button all_buttons" (click)="onAction(wizardAction.End)">End</button>
+</div>

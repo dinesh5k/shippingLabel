@@ -1,0 +1,14 @@
+<div class="container" (change)=emit()>
+  <div class="col-sm-12 title_row">
+    <h4>Select the shipping method</h4>
+  </div>
+
+  <div class="row street_row all_rows">
+    <div class="col-sm-1"><label class="label_modify">Street</label></div>
+    <div class="col-sm-11">
+      <select [(ngModel)]="shippingMethod" class="form-control">
+        <option *ngFor="let key of keys" [value]="key" >{{key}}</option>
+      </select></div>
+  </div>
+
+</div>

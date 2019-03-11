@@ -1,0 +1,25 @@
+<div class="container" (change)=emit() >
+  <div class="col-sm-12 title_row">
+    <h4>Enter the sender's address</h4>
+  </div>
+    <div class="row name_row all_rows">
+      <div class="col-sm-1"><label>Name</label></div>
+      <div class="col-sm-11"><input  class="form-control" [(ngModel)]="from.name"/></div>
+    </div>
+  
+    <div class="row street_row all_rows">
+      <div class="col-sm-1"><label>Street</label></div>
+      <div class="col-sm-11"><input class="form-control" [(ngModel)]="from.street" /></div>
+    </div>
+  
+    <div class="row city_state_zip all_rows">
+      <div class="col-sm-1"><label>City</label></div>
+      <div class="col-sm-3"><input class="form-control"[(ngModel)]="from.city" /></div>
+      <div class="col-sm-1"><label>State</label></div>
+      <div class="col-sm-3"><input class="form-control" [(ngModel)]="from.state" /></div>
+      <div class="col-sm-1"><label>Zip</label></div>
+      <div class="col-sm-3"><input class="form-control" [(ngModel)]="from.zip"/></div>
+    </div>
+  
+   
+  </div>
